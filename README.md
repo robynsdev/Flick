@@ -108,3 +108,10 @@ ___
 
 ___
 
+#### Screenshots of our Trello board
+
+##### Jan 18 2020
+
+![](img/trello_20210118.png)
+
+![](img/trello_20210120.png)
