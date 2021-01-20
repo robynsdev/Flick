@@ -108,3 +108,6 @@ ___
 
 ___
 
+#### ERD
+
+![](img/ERD_Flick.jpg)
