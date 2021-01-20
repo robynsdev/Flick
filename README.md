@@ -111,3 +111,15 @@ ___
 #### ERD Diagram
 
 ![](img/ERD_Flick.jpg)
+
+___
+
+#### Screenshots of Trello progress
+
+##### Jan 18 2020
+
+![](img/trello_20210118.png)
+
+##### Jan 20 2020
+
+![](img/trello_20210120.png)
