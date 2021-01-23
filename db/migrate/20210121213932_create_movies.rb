@@ -2,10 +2,10 @@ class CreateMovies < ActiveRecord::Migration[6.0]
   def change
     create_table :movies do |t|
       t.string :title
-      t.integer :year
+      t.string :release_date
       t.string :description
       t.string :genre
-      t.string :run_time
+      t.integer :run_time
 
       t.timestamps
     end
