@@ -1,2 +1,27 @@
 ### Index method
 GET http://localhost:3000/api/movies
+
+### Successfully post movie
+POST http://localhost:3000/api/movies
+Content-Type: application/json
+
+{
+  "title": "Totoro",
+  "release_date": "2019-08-09",
+  "description": "Japanese.",
+  "genre": "Biography/Autobiography",
+  "run_time": 60
+}
+
+### Unsuccessfully post movie
+POST http://localhost:3000/api/movies
+Content-Type: application/json
+
+{
+}
+
+### Successfully show movie id: 1
+GET http://localhost:3000/api/movies/1
+
+### Unsuccessfuly show movie id: 1000
+GET http://localhost:3000/api/movies/1000
