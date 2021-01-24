@@ -165,3 +165,7 @@ Adam wants to be his gatherings to be a blast for everyone and have an easy way 
 ### Jan 20 2021
 
 ![](img/trello_20210120.png)
+
+### Jan 24 2021
+
+![](img/trello_20210124.png)
