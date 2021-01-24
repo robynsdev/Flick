@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show]
+  before_action :set_movie, only: [:show, :destroy]
   def index
     @movies = Movie.all
     render json: @movies
@@ -18,7 +18,10 @@ class MoviesController < ApplicationController
     render json: @movie
   end
   
-
+  def destroy
+    @movie.delete
+    render json: 204
+  end
   
 
   private
@@ -27,7 +30,11 @@ class MoviesController < ApplicationController
   end
 
   def set_movie
-    @movie = Movie.find(params[:id])
+    begin
+      @movie = Movie.find(params[:id])
+    rescue
+      render json: {error: "Joke not found"}, status: 404
+    end
   end
 
 end
