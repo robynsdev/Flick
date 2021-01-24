@@ -31,3 +31,32 @@ DELETE http://localhost:3000/api/movies/1
 
 ### Unsuccessfully delete movie id: 1000
 DELETE http://localhost:3000/api/movies/1000
+
+### Successfully create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+  "username": "Barry", 
+  "email": "barry@test.com",
+  "password": "password3",
+  "password_confirmation": "password3"
+}
+
+### Successfully sign_in
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "barry@test.com",
+  "password": "password3"
+}
+
+### Unsuccessful sign_in
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "barry@test.com",
+  "password": "password"
+}

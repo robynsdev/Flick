@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     post '/movies', to: 'movies#create'
     get '/movies/:id', to: 'movies#show'
     delete '/movies/:id', to: 'movies#destroy'
+    scope '/auth' do
+      post '/sign_up', to: 'users#create'
+      post '/sign_in', to: 'users#sign_in'
+    end
+  
   end
 end
 
