@@ -1,0 +1,60 @@
+### Index method
+GET http://localhost:3000/api/watchlists
+
+### Successfully post watchlist
+POST http://localhost:3000/api/watchlists
+Content-Type: application/json
+
+{
+  "user_id": 2,
+  "movie_id": 23,
+  "title": "Totoro"
+}
+
+### Unsuccessfully post watchlist
+POST http://localhost:3000/api/watchlists
+Content-Type: application/json
+
+{
+}
+
+### Successfully show watchlist id: 1
+GET http://localhost:3000/api/watchlists/1
+
+### Unsuccessfuly show watchlist id: 1000
+GET http://localhost:3000/api/watchlists/1000
+
+### Successfully delete watchlist id: 1
+DELETE http://localhost:3000/api/watchlists/1
+
+### Unsuccessfully delete watchlist id: 1000
+DELETE http://localhost:3000/api/watchlists/1000
+
+### Successfully create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+  "username": "Barry", 
+  "email": "barry@test.com",
+  "password": "password3",
+  "password_confirmation": "password3"
+}
+
+### Successfully sign_in˛
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "barry@test.com",
+  "password": "password3"
+}
+
+### Unsuccessful sign_in
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "barry@test.com",
+  "password": "password"
+}
