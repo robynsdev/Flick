@@ -4,7 +4,7 @@ GET http://localhost:3000/api/watchlists
 ### Successfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3MTA2MjMsInN1YiI6MX0.VgUOMdCJ-wvpJg8ACaByKSfsNY3hXnbO9T9LR16z-Jc
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M
 
 {
   "movie_id": 23,
@@ -14,14 +14,15 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3MTA2M
 ### Unsuccessfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M
 
 {
 }
 
-### Successfully show watchlist id: 1
-GET http://localhost:3000/api/watchlists/1
+### Successfully show_list_by_user_id user_id: 2
+GET http://localhost:3000/api/watchlists/2
 
-### Unsuccessfuly show watchlist id: 1000
+### Unsuccessfuly show_list_by_user_id user_id: 1000
 GET http://localhost:3000/api/watchlists/1000
 
 ### Successfully delete watchlist id: 1
@@ -48,6 +49,16 @@ Content-Type: application/json
   "password_confirmation": "password6"
 }
 
+### Unsuccessfully create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+  "email": "sally@test.com",
+  "password": "password6",
+  "password_confirmation": "password6"
+}
+
 ### Successfully sign_in˛
 POST http://localhost:3000/api/auth/sign_in
 Content-Type: application/json
@@ -65,6 +76,10 @@ Content-Type: application/json
   "email": "barry@test.com",
   "password": "password"
 }
+
+### Successful show profile
+POST http://localhost:3000/api/auth/profile
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ
 
 ### Successfully update username
 PUT http://localhost:3000/api/auth/update
