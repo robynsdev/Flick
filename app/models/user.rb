@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   
-  has_many :watchlists
+  has_many :watchlists, dependent: :destroy
   # has_many :requesters, class_name: 'Friendships', foreign_key: :requester_id
   # has_many :addressees, class_name: 'Friendships', foreign_key: :addressee_id
 end

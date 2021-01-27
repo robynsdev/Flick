@@ -111,6 +111,6 @@ Content-Type: application/json
   "password": "password456"
 }
 
-### Successfully delete current_user
+### Successfully delete current_user id: 1
 DELETE http://localhost:3000/api/auth/delete
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M

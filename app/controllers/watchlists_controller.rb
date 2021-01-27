@@ -17,14 +17,13 @@ class WatchlistsController < ApplicationController
     end
   end
 
-  def show
-    # @userwatchlist = Watchlist.where(params[:user_id])
-    # render json: @userwatchlist
-    
+  def show_list_by_user
+    @userwatchlist = Watchlist.where(user_id: (params[:user_id]))
+    render json: @userwatchlist 
   end
   
   def destroy
-    @watchlist.delete
+    @watchlist.destroy
     render json: 204
   end
   

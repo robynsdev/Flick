@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, except: [:create, :sign_in]
   before_action :set_user, only: [:update, :delete]
-
 
   def create
     @user = User.create(user_params)
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def delete
-    @user.delete
+    @user.destroy
     render json: 204
   end
 
