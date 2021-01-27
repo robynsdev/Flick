@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, except: [:create, :sign_in]
-  before_action :set_user, only: [:update, :delete]
+  before_action :authenticate_user, except: [:create, :show, :sign_in]
+  before_action :set_user, only: [:profile, :update, :delete]
 
   def create
     @user = User.create(user_params)
@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    render json: @user
+  end
+
   def update
     @user.update(user_params)
     if @user.errors.any? 
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:username, :email, :password, :password_confirmation)
+    params.permit(:is_admin, :user, :username, :email, :password, :password_confirmation)
   end
 
   def set_user

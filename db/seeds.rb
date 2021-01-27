@@ -32,7 +32,10 @@ end
 
 if Watchlist.all.length == 0
   Watchlist.create(user_id: 1, movie_id: 133, title: "Land before time")
+  puts "Created Movie in Watchlist: Land before time, 1."
+
   Watchlist.create(user_id: 2, movie_id: 1444, title: "Little mermaid")
+  puts "Created Movie in Watchlist: Little mermaid, 2."
 
   6.times {
     user_id = rand(1..3)
