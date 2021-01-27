@@ -1,17 +1,17 @@
 ### Index method
 GET http://localhost:3000/api/watchlists
 
-### Successfully post watchlist
+### Successfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3MTA2MjMsInN1YiI6MX0.VgUOMdCJ-wvpJg8ACaByKSfsNY3hXnbO9T9LR16z-Jc
 
 {
-  "user_id": 2,
   "movie_id": 23,
   "title": "Totoro"
 }
 
-### Unsuccessfully post watchlist
+### Unsuccessfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
 
@@ -26,19 +26,26 @@ GET http://localhost:3000/api/watchlists/1000
 
 ### Successfully delete watchlist id: 1
 DELETE http://localhost:3000/api/watchlists/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
 
-### Unsuccessfully delete watchlist id: 1000
+### Unsuccessfully delete watchlist id: 2. Not creator of watchlist.
+DELETE http://localhost:3000/api/watchlists/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
+
+
+### Unsuccessfully delete watchlist id: 1000. No existing watchlist.
 DELETE http://localhost:3000/api/watchlists/1000
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
 
 ### Successfully create user
 POST http://localhost:3000/api/auth/sign_up
 Content-Type: application/json
 
 {
-  "username": "Barry", 
-  "email": "barry@test.com",
-  "password": "password3",
-  "password_confirmation": "password3"
+  "username": "Sally", 
+  "email": "sally@test.com",
+  "password": "password6",
+  "password_confirmation": "password6"
 }
 
 ### Successfully sign_in˛
@@ -46,8 +53,8 @@ POST http://localhost:3000/api/auth/sign_in
 Content-Type: application/json
 
 {
-  "email": "barry@test.com",
-  "password": "password3"
+  "email": "sally@test.com",
+  "password": "password6"
 }
 
 ### Unsuccessful sign_in
@@ -58,3 +65,52 @@ Content-Type: application/json
   "email": "barry@test.com",
   "password": "password"
 }
+
+### Successfully update username
+PUT http://localhost:3000/api/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ
+
+{
+  "username": "Fally" 
+}
+
+### Successfully update email
+PUT http://localhost:3000/api/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ
+
+{
+  "email": "Fally@test.com" 
+}
+
+### Successfully sign_in˛with updated email
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "Fally@test.com",
+  "password": "password6"
+}
+
+### Successfully update password
+PUT http://localhost:3000/api/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ
+
+{
+  "password": "password456"
+}
+
+### Successfully sign_in˛with updated password
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email": "Fally@test.com",
+  "password": "password456"
+}
+
+### Successfully delete current_user
+DELETE http://localhost:3000/api/auth/delete
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTQ4NjYsInN1YiI6NH0.oJgK57MlBfW56BbTyIkU4QRibXnOOplbkOGnIbjskdQ

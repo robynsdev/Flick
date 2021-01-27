@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:update, :delete]
+
+
   def create
     @user = User.create(user_params)
     if @user.save
@@ -19,8 +22,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user.update(user_params)
+    if @user.errors.any? 
+      render json: @user.errors, status: :unprocessable_entity
+    else  
+      render json: @user, status: 201
+    end 
+  end
+
+  def delete
+    @user.delete
+    render json: 204
+  end
+
   private
   def user_params
     params.permit(:username, :email, :password, :password_confirmation)
   end
+
+  def set_user
+    begin
+      @user = User.find(current_user.id.to_i)
+    rescue
+      render json: {Error: "User not found"}, status: 404
+    end
+  end
+
 end

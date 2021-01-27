@@ -31,6 +31,9 @@ if User.count == 0
 end
 
 if Watchlist.all.length == 0
+  Watchlist.create(user_id: 1, movie_id: 133, title: "Land before time")
+  Watchlist.create(user_id: 2, movie_id: 1444, title: "Little mermaid")
+
   6.times {
     user_id = rand(1..3)
     movie_id = rand(60..360)

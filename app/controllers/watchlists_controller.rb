@@ -1,12 +1,15 @@
 class WatchlistsController < ApplicationController
-  before_action :set_watchlist, only: [:show, :destroy]
+  before_action :authenticate_user, except: [:index, :show]
+  before_action :set_watchlist, only: [:destroy]
+  before_action :check_ownership, only: [:destroy]
+
   def index
     @watchlists = Watchlist.all
     render json: @watchlists
   end
 
   def create
-    @watchlist = Watchlist.create(watchlist_params)
+    @watchlist = current_user.watchlists.create(watchlist_params)
     if @watchlist.errors.any?
       render json: @watchlist.errors, status: :unprocessable_entity
     else
@@ -15,12 +18,9 @@ class WatchlistsController < ApplicationController
   end
 
   def show
-    render json: @watchlist
-  end
-
-  def show_by_user 
-    # @userwatchlist = Watchlist.all.foreach(user )
-    # Watchlist.find(params[:id])
+    # @userwatchlist = Watchlist.where(params[:user_id])
+    # render json: @userwatchlist
+    
   end
   
   def destroy
@@ -38,7 +38,13 @@ class WatchlistsController < ApplicationController
     begin
       @watchlist = Watchlist.find(params[:id])
     rescue
-      render json: {error: "Joke not found"}, status: 404
+      render json: {Error: "Movie not found"}, status: 404
+    end
+  end
+
+  def check_ownership
+    if current_user.id != @watchlist.user.id
+      render json: {Error: "You don't have permission to do that."}, status: 401
     end
   end
   
