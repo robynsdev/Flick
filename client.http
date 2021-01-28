@@ -177,8 +177,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4Nzk4N
 ### Successfully show_list_by_user_id user_id: 1
 GET http://localhost:3000/api/friendships/1
 
-### Successfully delete friendship id: 1
-DELETE http://localhost:3000/api/friendships/1
+### Successfully delete friendship id: 2
+DELETE http://localhost:3000/api/friendships/2
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4OTU1ODAsInN1YiI6MX0.Ij-Uv7WRpNnYBn1GZxKw5EhIwOxJFqOOxR5iGdQFevk
 
 ### Unsuccessfully delete friendship id: 2. Not creator of friendship.

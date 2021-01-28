@@ -33,7 +33,7 @@ class FriendshipsController < ApplicationController
   end
   
   def destroy
-    @friendship = current_user.friendships.find(params[:id]).present?
+    @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, params[:id])
     @friendship.destroy
     render json: 204
   end
