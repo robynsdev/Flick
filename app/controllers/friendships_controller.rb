@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show_list_by_user_id, :destroy]
+  before_action :authenticate_user, except: [:index, :show_list_by_user_id]
   before_action :find_friend_by_email, only: [:create]
   before_action :find_friend, only: [:destroy]
   before_action :check_ownership, only: [:destroy]
