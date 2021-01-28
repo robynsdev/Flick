@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    render json: @user
+    render json: { username: @user.username, email: @user.email }
   end
 
   def update
