@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, except: [:create, :show, :sign_in]
+  before_action :authenticate_user, except: [:create, :profile, :sign_in]
   before_action :set_user, only: [:profile, :update, :delete]
 
   def create
