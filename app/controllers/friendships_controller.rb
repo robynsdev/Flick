@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show_list_by_user_id]
+  before_action :authenticate_user, except: [:index, :show_list_by_user_id, :destroy]
   before_action :find_friend_by_email, only: [:create]
   before_action :find_friend, only: [:destroy]
   before_action :check_ownership, only: [:destroy]
@@ -11,14 +11,14 @@ class FriendshipsController < ApplicationController
 
   # prevent user from adding friends who are already on friends list
   def create
-    if Friendship.where(user_id: current_user.id, friend_id: @friend_id).present?
+    if @friendship
       render json: { Message: "You're already friends!" }, status: :unprocessable_entity
     else
-      @friendship = current_user.friendships.create(:friend_id => @friend_id)
-      if @friendship.errors.any?
-        render json: @friendship.errors, status: :unprocessable_entity
+      @friend = current_user.friendships.create(:friend_id => @friend_id)
+      if @friend.errors.any?
+        render json: @friend.errors, status: :unprocessable_entity
       else
-        render json: @friendship, status: 201
+        render json: @friend, status: 201
       end
     end
   end
@@ -33,7 +33,6 @@ class FriendshipsController < ApplicationController
   end
   
   def destroy
-    @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, params[:id])
     @friendship.destroy
     render json: 204
   end
@@ -46,7 +45,7 @@ class FriendshipsController < ApplicationController
 
   def find_friend
     begin
-      @friendship = Friendship.find(params[:id])
+      @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, params[:id])
     rescue
       render json: {Error: "Friend not found"}, status: 404
     end
