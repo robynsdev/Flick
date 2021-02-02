@@ -19,11 +19,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyM
 {
 }
 
-### Successfully show_list_by_user_id user_id: 2
-GET http://localhost:3000/api/watchlists/2
+### Successfully show_list_by_username username: pikachu
+GET http://localhost:3000/api/watchlists/pikachu
 
-### Unsuccessfuly show_list_by_user_id user_id: 1000
-GET http://localhost:3000/api/watchlists/1000
+### Unsuccessfuly show_list_by_username username: meepafloo
+GET http://localhost:3000/api/watchlists/meepafloo
 
 ### Successfully delete watchlist id: 1
 DELETE http://localhost:3000/api/watchlists/1
