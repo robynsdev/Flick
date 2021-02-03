@@ -8,9 +8,9 @@ class UsersController < ApplicationController
       auth_token = Knock::AuthToken.new payload: {sub: @user.id}
       render json: {username: @user.username, jwt: auth_token.token}, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
+        render json: @user.errors, status: :unprocessable_entity
+    end 
+  end 
 
   def sign_in
     @user = User.find_by_email(params[:email])
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def delete
     @user.destroy
-    render json: 204
+    render status: 204
   end
 
   private

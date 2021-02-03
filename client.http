@@ -146,9 +146,9 @@ Content-Type: application/json
   "password": "password456"
 }
 
-### Successfully delete current_user id: 1
+### Successfully delete current_user sally id: 4
 DELETE http://localhost:3000/api/auth/delete
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA0NzUsInN1YiI6N30.VuFOH--ZwsKOEMcNHV2ukoyLXgtz2evV3K55FPyXdRM
 
 
 
