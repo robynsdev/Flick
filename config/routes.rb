@@ -6,9 +6,8 @@ Rails.application.routes.draw do
     post '/watchlists', to: 'watchlists#create'
     get '/watchlists/:id', to: 'watchlists#show_list_by_username'
     delete '/watchlists/:id', to: 'watchlists#destroy'
-    get '/friendships', to: 'friendships#index'
+    get '/friendships', to: 'friendships#show_list_by_user_id'
     post '/friendships', to: 'friendships#create'
-    get '/friendships/:id', to: 'friendships#show_list_by_user_id'
     delete '/friendships/:id', to: 'friendships#destroy'
 
     scope '/auth' do

@@ -1,12 +1,17 @@
 class FriendshipsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show_list_by_user_id]
+  before_action :authenticate_user
   before_action :find_friend_by_email, only: [:create]
   before_action :find_friend, only: [:create, :destroy]
   before_action :check_ownership, only: [:destroy]
 
-  def index
-    @friendships = Friendship.all
-    render json: @friendships
+  def show_list_by_user_id
+    @id = current_user.id
+    @userfriendships = User.find(@id).friends
+    if @userfriendships.empty?
+      render json: {Error: "No friends found"}, status: 404
+    else
+      render json: @userfriendships.to_json(:only => [:id, :username])
+    end
   end
 
   # prevent user from adding friends who are already on friends list
@@ -22,19 +27,10 @@ class FriendshipsController < ApplicationController
       end
     end
   end
-
-  def show_list_by_user_id
-    @userfriendships = User.find(params[:id]).friends
-    if @userfriendships.empty?
-      render json: {Error: "No friends found"}, status: 404
-    else
-      render json: @userfriendships.to_json(:only => [:id, :username])
-    end
-  end
   
   def destroy
     @friendship.destroy
-    render json: 204
+    render status: 204
   end
   
 

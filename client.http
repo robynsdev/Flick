@@ -148,13 +148,14 @@ Content-Type: application/json
 
 ### Successfully delete current_user sally id: 4
 DELETE http://localhost:3000/api/auth/delete
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA0NzUsInN1YiI6N30.VuFOH--ZwsKOEMcNHV2ukoyLXgtz2evV3K55FPyXdRM
+Authorization: Bearer eyJ0eXAiOiJKVq1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA0NzUsInN1YiI6N30.VuFOH--ZwsKOEMcNHV2ukoyLXgtz2evV3K55FPyXdRM
 
 
 
 
-### Friendship Index method
+### Successfully show_list_by_user_id sally jwt
 GET http://localhost:3000/api/friendships
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2OTksInN1YiI6NH0.ElMAfPGKeFCKvSy7jKVYigR6hXJHiK7HeYZ_10QHums
 
 ### Successfully create friendship for Sally id:4
 POST http://localhost:3000/api/friendships
@@ -173,9 +174,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2O
 {
   "email": "poop@poop.com"
 }
-
-### Successfully show_list_by_user_id user_id: 1
-GET http://localhost:3000/api/friendships/1
 
 ### Successfully delete friendship id: 2
 DELETE http://localhost:3000/api/friendships/3
