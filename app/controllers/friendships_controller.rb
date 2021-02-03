@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show_list_by_user_id]
   before_action :find_friend_by_email, only: [:create]
-  before_action :find_friend, only: [:destroy]
+  before_action :find_friend, only: [:create, :destroy]
   before_action :check_ownership, only: [:destroy]
 
   def index
@@ -45,7 +45,7 @@ class FriendshipsController < ApplicationController
 
   def find_friend
     begin
-      @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, params[:id])
+      @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, @friend_id)
     rescue
       render json: {Error: "Friend not found"}, status: 404
     end

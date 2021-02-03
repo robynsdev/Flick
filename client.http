@@ -159,7 +159,7 @@ GET http://localhost:3000/api/friendships
 ### Successfully create friendship for Sally id:4
 POST http://localhost:3000/api/friendships
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4Nzk4NTAsInN1YiI6NH0.hKZziFbCE-DFXAQliRXbj0NhimRlSIoV1EHBTmOM4Nk
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2OTksInN1YiI6NH0.ElMAfPGKeFCKvSy7jKVYigR6hXJHiK7HeYZ_10QHums
 
 {
   "email": "squirtle@test.com"
@@ -168,7 +168,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4Nzk4N
 ### Unsuccessfully create friendship for Sally id:4
 POST http://localhost:3000/api/friendships
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4Nzk4NTAsInN1YiI6NH0.hKZziFbCE-DFXAQliRXbj0NhimRlSIoV1EHBTmOM4Nk
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2OTksInN1YiI6NH0.ElMAfPGKeFCKvSy7jKVYigR6hXJHiK7HeYZ_10QHums
 
 {
   "email": "poop@poop.com"
