@@ -1,10 +1,12 @@
+### WATCHLIST CONTROLLER
 ### Watchlist Index method
 GET http://localhost:3000/api/watchlists
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 ### Successfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 {
   "movie_id": 23,
@@ -14,38 +16,29 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyM
 ### Unsuccessfully create watchlist
 POST http://localhost:3000/api/watchlists
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3OTgyMTAsInN1YiI6MX0.vg3qhbKgbcBmXbAf3s6rnleqsClIzE612p12y6wt30M
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 {
 }
 
 ### Successfully show_list_by_username username: pikachu
 GET http://localhost:3000/api/watchlists/pikachu
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzM2MjMsInN1YiI6MX0.6B1e_RJierJUPSxb7rD2z0y0UQkg6zhBlRTifiy3hiY
 
 ### Successfully delete watchlist id: 1
 DELETE http://localhost:3000/api/watchlists/1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzM2MjMsInN1YiI6MX0.6B1e_RJierJUPSxb7rD2z0y0UQkg6zhBlRTifiy3hiY
 
 ### Unsuccessfully delete watchlist id: 2. Not creator of watchlist.
 DELETE http://localhost:3000/api/watchlists/2
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzM2MjMsInN1YiI6MX0.6B1e_RJierJUPSxb7rD2z0y0UQkg6zhBlRTifiy3hiY
 
 ### Unsuccessfully delete watchlist id: 1000. No existing watchlist.
 DELETE http://localhost:3000/api/watchlists/1000
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE3ODgwMjksInN1YiI6MX0.3x2ZDVDtTsNA1zuQxcrw7wKraBxT_ab8_3dhOVpX-oE
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzM2MjMsInN1YiI6MX0.6B1e_RJierJUPSxb7rD2z0y0UQkg6zhBlRTifiy3hiY
 
-### Successfully create user
-POST http://localhost:3000/api/auth/sign_up
-Content-Type: application/json
 
-{
-  "username": "Sally", 
-  "email": "sally@test.com",
-  "password": "password6",
-  "password_confirmation": "password6"
-}
-
+### USER CONTROLLER
 ### Unsuccessfully create user. Missing field.
 POST http://localhost:3000/api/auth/sign_up
 Content-Type: application/json
@@ -67,7 +60,18 @@ Content-Type: application/json
   "password_confirmation": "password6"
 }
 
-### Successfully sign_in˛
+### Successfully create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+  "username": "Sally", 
+  "email": "sally@test.com",
+  "password": "password6",
+  "password_confirmation": "password6"
+}
+
+### Successfully sign_in
 POST http://localhost:3000/api/auth/sign_in
 Content-Type: application/json
 
@@ -96,12 +100,12 @@ Content-Type: application/json
 
 ### Successful show profile id:4
 POST http://localhost:3000/api/auth/profile
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4ODIwMDAsInN1YiI6NH0.9BfqaTCH_rVIl690UWg4f939jywdHTv4xbwV4b7ZNlI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 ### Successfully update username
 PUT http://localhost:3000/api/auth/update
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4ODIwMDAsInN1YiI6NH0.9BfqaTCH_rVIl690UWg4f939jywdHTv4xbwV4b7ZNlI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 {
   "username": "Fally" 
@@ -110,7 +114,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4ODIwM
 ### Successfully update email
 PUT http://localhost:3000/api/auth/update
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4ODIwMDAsInN1YiI6NH0.9BfqaTCH_rVIl690UWg4f939jywdHTv4xbwV4b7ZNlI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 {
   "email": "Fally@test.com" 
@@ -128,7 +132,7 @@ Content-Type: application/json
 ### Successfully update password
 PUT http://localhost:3000/api/auth/update
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTE4ODIwMDAsInN1YiI6NH0.9BfqaTCH_rVIl690UWg4f939jywdHTv4xbwV4b7ZNlI
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 {
   "password": "password456"
@@ -145,15 +149,9 @@ Content-Type: application/json
 
 ### Successfully delete current_user sally id: 4
 DELETE http://localhost:3000/api/auth/delete
-Authorization: Bearer eyJ0eXAiOiJKVq1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA0NzUsInN1YiI6N30.VuFOH--ZwsKOEMcNHV2ukoyLXgtz2evV3K55FPyXdRM
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
-
-
-
-### Successfully show_list_by_user_id sally jwt
-GET http://localhost:3000/api/friendships
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2OTksInN1YiI6NH0.ElMAfPGKeFCKvSy7jKVYigR6hXJHiK7HeYZ_10QHums
-
+### FRIENDSHIP CONTROLLER
 ### Successfully create friendship for Sally id:4
 POST http://localhost:3000/api/friendships
 Content-Type: application/json
@@ -171,6 +169,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2O
 {
   "email": "poop@poop.com"
 }
+
+### Successfully show_list_by_user_id sally jwt
+GET http://localhost:3000/api/friendships
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MjA2OTksInN1YiI6NH0.ElMAfPGKeFCKvSy7jKVYigR6hXJHiK7HeYZ_10QHums
 
 ### Successfully delete friendship id: squirtle
 DELETE http://localhost:3000/api/friendships/squirtle
