@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show_list_by_username]
+  before_action :authenticate_user
   before_action :find_movie, only: [:destroy]
   before_action :check_ownership, only: [:destroy]
 
@@ -18,7 +18,7 @@ class WatchlistsController < ApplicationController
   end
 
   def show_list_by_username
-    id = User.find_by_username(params[:id]).id
+    id = User.find_by_username(params[:username]).id
     userwatchlist = Watchlist.where(user_id: id)
     if userwatchlist.empty?
       render json: {Error: "No favourites found"}, status: 404
@@ -29,7 +29,7 @@ class WatchlistsController < ApplicationController
   
   def destroy
     @watchlist.destroy
-    render json: 204
+    render status: 204
   end
   
 

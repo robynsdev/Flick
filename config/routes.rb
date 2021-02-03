@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope '/api' do
     get '/watchlists', to: 'watchlists#index'
     post '/watchlists', to: 'watchlists#create'
-    get '/watchlists/:id', to: 'watchlists#show_list_by_username'
+    get '/watchlists/:username', to: 'watchlists#show_list_by_username'
     delete '/watchlists/:id', to: 'watchlists#destroy'
     get '/friendships', to: 'friendships#show_list_by_user_id'
     post '/friendships', to: 'friendships#create'
