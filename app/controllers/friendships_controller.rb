@@ -1,7 +1,8 @@
 class FriendshipsController < ApplicationController
   before_action :authenticate_user
   before_action :find_friend_by_email, only: [:create]
-  before_action :find_friend, only: [:create, :destroy]
+  before_action :find_friend_by_username, only: [:destroy]
+  before_action :find_friendship, only: [:create, :destroy]
   before_action :check_ownership, only: [:destroy]
 
   def show_list_by_user_id
@@ -36,12 +37,12 @@ class FriendshipsController < ApplicationController
 
   private
   def friendship_params
-    params.permit(:user_id, :friend_id, :email)
+    params.permit(:user_id, :friend_id, :email, :username)
   end
 
-  def find_friend
+  def find_friend_by_username
     begin
-      @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, @friend_id)
+      @friend_id = User.find_by(username: params[:username]).id
     rescue
       render json: {Error: "Friend not found"}, status: 404
     end
@@ -50,6 +51,14 @@ class FriendshipsController < ApplicationController
   def find_friend_by_email
     begin
       @friend_id = User.find_by(email: params[:email]).id
+    rescue
+      render json: {Error: "Friend not found"}, status: 404
+    end
+  end
+
+  def find_friendship
+    begin
+      @friendship = current_user.friendships.find_by_user_id_and_friend_id(current_user.id, @friend_id)
     rescue
       render json: {Error: "Friend not found"}, status: 404
     end
