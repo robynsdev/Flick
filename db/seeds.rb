@@ -22,6 +22,21 @@ if Watchlist.all.length == 0
   Watchlist.create(user_id: 2, movie_id: 1444, title: "Little mermaid")
   puts "Created Movie in Watchlist: Little mermaid, 2."
 
+  Watchlist.create(user_id: 1, movie_id: 1000, title: "Common movie 1")
+  puts "Created Movie in Watchlist: Common movie 1, 1."
+  Watchlist.create(user_id: 2, movie_id: 1000, title: "Common movie 1")
+  puts "Created Movie in Watchlist: Common movie 1, 2."
+
+  Watchlist.create(user_id: 1, movie_id: 1001, title: "Common movie 2")
+  puts "Created Movie in Watchlist: Common movie 2, 1."
+  Watchlist.create(user_id: 2, movie_id: 1001, title: "Common movie 2")
+  puts "Created Movie in Watchlist: Common movie 2, 2."
+
+  Watchlist.create(user_id: 1, movie_id: 1002, title: "Common movie 3")
+  puts "Created Movie in Watchlist: Common movie 3, 1."
+  Watchlist.create(user_id: 3, movie_id: 1002, title: "Common movie 3")
+  puts "Created Movie in Watchlist: Common movie 3, 3."
+
   6.times {
     user_id = rand(1..3)
     movie_id = rand(60..360)
