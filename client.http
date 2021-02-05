@@ -1,7 +1,6 @@
 ### WATCHLIST CONTROLLER
 ### Watchlist Index method
 GET http://localhost:3000/api/watchlists
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzNjUsInN1YiI6NH0.043CrUXtwtZjtWqp2FmlIUUfj6t7TyV6smqxz5ZtQfE
 
 ### Successfully create watchlist
 POST http://localhost:3000/api/watchlists
