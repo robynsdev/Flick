@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, except: [:index]
   before_action :find_by_username, only: [:show_list_by_username]
   before_action :find_movie, only: [:destroy]
   before_action :check_ownership, only: [:destroy]
