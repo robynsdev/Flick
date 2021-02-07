@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     get '/friendships', to: 'friendships#show_list_by_user_id'
     post '/friendships', to: 'friendships#create'
     delete '/friendships/:username', to: 'friendships#destroy'
-
     scope '/auth' do
       post '/sign_up', to: 'users#create'
       post '/sign_in', to: 'users#sign_in'
@@ -17,7 +16,6 @@ Rails.application.routes.draw do
       put '/update', to: 'users#update' 
       delete '/delete', to: 'users#delete' 
     end
-  
   end
 end
 

@@ -5,7 +5,6 @@ RSpec.describe Watchlist, type: :model do
   
   context 'validations' do
     it 'is valid with valid attributes' do
-      p subject
       expect(subject).to be_valid
     end
 
