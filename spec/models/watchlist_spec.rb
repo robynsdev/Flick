@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject {FactoryBot.create(:user)}
+RSpec.describe Watchlist, type: :model do
+  subject {FactoryBot.create(:watchlist)}
   
   context 'validations' do
     it 'is valid with valid attributes' do
@@ -10,15 +10,15 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid without a username' do
-      subject.username = nil
+      subject.user_id = nil
       expect(subject).to_not be_valid
     end
     it 'is not valid without a email' do
-      subject.email = nil
+      subject.movie_id = nil
       expect(subject).to_not be_valid
     end
     it 'is not valid without a password' do
-      subject.password = nil
+      subject.title = nil
       expect(subject).to_not be_valid
     end
   end
