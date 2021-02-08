@@ -12,22 +12,42 @@ FactoryBot.define do
     sequence :password_confirmation do |n|
       "password#{n}"
     end
+
+    trait :invalid do 
+      email {nil}
+    end
+
     factory :user_with_watchlists do
-      watchlists { [assocation(:watchlist)] }
+      transient do
+        watchlists_count { 5 }
+      end
+      after(:create) do |user, evaluator|
+        create_list(:watchlist, evaluator.watchlists_count, user: user)
+        user.reload
+      end
     end
     factory :user_with_friendships do
-      friendships { [assocation(:friendship)] }
+      transient do
+        friendships_count { 5 }
+      end
+      after(:create) do |user, evaluator|
+        create_list(:friendship, evaluator.friendships_count, user: user)
+        user.reload
+      end
     end
   end
+  #   factory :user_with_friendships do
+  #     friendships { [assocation(:friendship)] }
+  #   end
 
   factory :watchlist do
     movie_id {133}
     title {"Land before time"}
-    user
+    association :user
   end
 
   factory :friendship do 
-    user
-    friend
+    association :user
+    association :friend
   end
 end

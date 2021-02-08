@@ -30,6 +30,7 @@ gem 'rack-cors'
 
 group :test do
   gem 'simplecov', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do

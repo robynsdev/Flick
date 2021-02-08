@@ -8,15 +8,12 @@ RSpec.describe "Watchlists", type: :request do
       get watchlists_path
       @json_response = JSON.parse(response.body)
     end
-
     it 'returns http success' do
       expect(response).to have_http_status(:success)
-    end
-    
+    end   
     it 'JSON response contains the correct number of entries' do
       expect(@json_response.count).to eq(2)
-    end
-    
+    end    
     it 'JSON response body contains expected attributes' do
       expect(@json_response[0]).to include({
         'id' => @first_watchlist.id,
@@ -27,7 +24,7 @@ RSpec.describe "Watchlists", type: :request do
     end
   end
 
-  describe "GET watchlists#create" do
+  describe "POST watchlists#create" do
     before(:example) do
       @watchlist_params = FactoryBot.attributes_for(:watchlist)
       post watchlists_path, params: @watchlist_params, headers: authenticated_header
@@ -37,6 +34,38 @@ RSpec.describe "Watchlists", type: :request do
     end
     it 'saves the User to the database' do
       expect(Watchlist.last.title).to eq(@watchlist_params[:title])
+    end
+  end
+
+  describe "GET watchlists#show_list_by_username" do
+    before(:example) do
+      @user_params = FactoryBot.attributes_for(:user_with_watchlists)
+      get "/api/watchlists/#{@user_params[:username]}", headers: authenticated_header
+      @json_response = JSON.parse(response.body)
+    end
+    it 'JSON response contains the correct number of entries' do
+      expect(@json_response.count).to eq(5)
+    end    
+  end
+
+  describe "DELETE watchlists#destroy" do
+    context 'when the task is valid' do
+      before(:example) do
+        @watchlist_params = FactoryBot.create(:watchlist)
+        delete watchlists_path(@watchlist_params.id), headers: authenticate_user(@watchlist_params.id)
+      end
+      it 'returns http 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+    context 'when the task is invalid' do
+      before(:example) do
+        @watchlist_params = FactoryBot.create(:watchlist)
+        delete watchlists_path(@watchlist_params.id), headers: authenticated_header
+      end
+      it 'returns http 204' do
+        expect(response).to have_http_status(204)
+      end
     end
   end
 end
