@@ -5,8 +5,7 @@ RSpec.describe "Users", type: :request do
     context 'when the task is valid' do
       before(:example) do
         @user_params = FactoryBot.attributes_for(:user)
-        p @user_params[:username]
-        post sign_up_path, params: { user: @user_params }
+        post sign_up_path, params: @user_params 
       end
       it 'returns http created' do
         expect(response).to have_http_status(:created)
