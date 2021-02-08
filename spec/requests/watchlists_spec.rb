@@ -30,7 +30,7 @@ RSpec.describe "Watchlists", type: :request do
   describe "GET watchlists#create" do
     before(:example) do
       @watchlist_params = FactoryBot.attributes_for(:watchlist)
-      post watchlists_path, params: { user: @watchlist_params }
+      post watchlists_path, params: @watchlist_params, headers: authenticated_header
     end
     it 'returns http created' do
       expect(response).to have_http_status(:created)
