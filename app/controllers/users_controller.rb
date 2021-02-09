@@ -46,11 +46,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    begin
       @user = User.find(current_user.id.to_i)
-    rescue
-      render json: {Error: "User not found"}, status: 404
-    end
   end
 
 end

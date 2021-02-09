@@ -22,7 +22,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzMzN
 
 ### Successfully show_list_by_username username: pikachu
 GET http://localhost:3000/api/watchlists/pikachu
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI0MzM2MjMsInN1YiI6MX0.6B1e_RJierJUPSxb7rD2z0y0UQkg6zhBlRTifiy3hiY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTI2NjE4OTYsInN1YiI6MX0.2oT9T8rqyYUjV2CsO42WpNtS8Oo7pvF0O_oOYPfjBfQ
 
 ### Successfully delete watchlist id: 1
 DELETE http://localhost:3000/api/watchlists/1

@@ -39,11 +39,7 @@ class WatchlistsController < ApplicationController
   end
 
   def find_movie
-    begin
       @watchlist = Watchlist.find(params[:id])
-    rescue
-      render json: {Error: "Movie not found"}, status: 404
-    end
   end
 
   def find_by_username
