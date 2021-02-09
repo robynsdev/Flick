@@ -44,6 +44,10 @@ FactoryBot.define do
     movie_id {133}
     title {"Land before time"}
     association :user
+
+    trait :invalid do 
+      title {nil}
+    end
   end
 
   factory :friendship do 
