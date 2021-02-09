@@ -10,8 +10,6 @@ RSpec.describe "Friendships", type: :request do
           post friendships_path, params: {:email=>@user2.email}, headers: authenticate_user(@user1.id)
         end
         it 'returns http created' do
-          p @user1
-          p @user2.email
           expect(response).to have_http_status(:created)
         end
         it 'saves the Friendship to the database' do

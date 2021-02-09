@@ -36,9 +36,6 @@ FactoryBot.define do
       end
     end
   end
-  #   factory :user_with_friendships do
-  #     friendships { [assocation(:friendship)] }
-  #   end
 
   factory :watchlist do
     movie_id {133}
