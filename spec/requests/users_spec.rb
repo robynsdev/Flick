@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :request do
     context 'when the user is valid' do
       before(:example) do
         @user_params = FactoryBot.attributes_for(:user)
-        post sign_up_path, params: @user_params 
+        post sign_up_path, params: @user_params
       end
       it 'returns http created' do
         expect(response).to have_http_status(:created)
@@ -28,32 +28,22 @@ RSpec.describe "Users", type: :request do
   describe "POST users#sign_in" do
     context 'when the user is valid' do
       before(:example) do
-        @user_params = User.create(
-          username: "dog",
-          email: "dog@test.com",
-          password: "password",
-          password_confirmation: "password"
-        )
+        @user = FactoryBot.create(:user)
         post sign_in_path, params: {:email=>
-        "dog@test.com", :password=>"password"} 
+        @user.email, :password=>@user.password} 
       end
       it 'returns http created' do
         expect(response).to have_http_status(200)
       end
       it 'returns the username' do
-        expect(JSON.parse(response.body)['username']).to eq(@user_params[:username])
+        expect(JSON.parse(response.body)['username']).to eq(@user.username)
       end
     end
     context 'when the user is invalid' do
       before(:example) do
-        @user_params = User.create(
-          username: "dog",
-          email: "dog@test.com",
-          password: "password",
-          password_confirmation: "password"
-        )
+        @user = FactoryBot.create(:user)
         post sign_in_path, params: {:email=>
-        "dog@test.com", :password=>""} 
+        @user.email, :password=>""} 
       end
       it 'returns http 404' do
         expect(response).to have_http_status(404)
@@ -64,19 +54,14 @@ RSpec.describe "Users", type: :request do
   describe "GET users#profile" do
     context 'when the user is valid' do
       before(:example) do
-        @user_params = User.create(
-          username: "dog",
-          email: "dog@test.com",
-          password: "password",
-          password_confirmation: "password"
-        )
-        get profile_path, headers: authenticate_user(@user_params.id)
+        @user = FactoryBot.create(:user)
+        get profile_path, headers: authenticate_user(@user.id)
       end
       it 'returns the username' do
-        expect(JSON.parse(response.body)['username']).to eq(@user_params[:username])
+        expect(JSON.parse(response.body)['username']).to eq(@user[:username])
       end
       it 'returns the email' do
-        expect(JSON.parse(response.body)['email']).to eq(@user_params[:email])
+        expect(JSON.parse(response.body)['email']).to eq(@user[:email])
       end
     end
   end
